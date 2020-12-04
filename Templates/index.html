@@ -1,0 +1,47 @@
+<html>
+    <body>
+    <style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    th, td {
+    padding: 5px;
+    text-align: Center;    
+    }
+    </style>
+        {% block content %}
+            <h1>{% block title %} Thong tin nguoi dung truy cap{% endblock %}</h1>
+            <input type="button" value="Refresh Page" onClick="window.location.reload(true)">
+            <table style="width:100%">
+                <thead>
+                    <tr>
+                        <th rowspan="2">MAC Address</th>
+                        <th rowspan="2">Campus</th>
+                        <th rowspan="2">Building</th>
+                        <th rowspan="2">Floor</th>
+                        <th rowspan="2">Thoi gian</th>
+                        <th colspan="3">Location</th>
+                        <th rowspan="2">IP</th>
+                    </tr>
+                    <tr>
+                        <th>X</th>
+                        <th>Y</th>
+                        <th>Z</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                        <tr>
+                            {% for item in row %}
+                            <td>
+                                {{item}}
+                            </td>
+                            {% endfor %}
+                        </tr>  
+                        {% endfor %}
+                </tbody>
+            </table>
+        {% endblock %}
+    </body>
+</html>
